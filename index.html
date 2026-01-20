@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皇极经世 - 邵雍经典著作</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #D4AF37;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f5f1e6;
+            --text-color: #333;
+            --light-text: #f5f1e6;
+            --border-color: #8B0000;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f1e6"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e8e0d0" stroke-width="0.5"/></svg>');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: var(--dark-bg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%238B0000" stroke-width="2"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23D4AF37" stroke-width="1.5"/><path d="M30,50 L70,50 M50,30 L50,70" stroke="%23D4AF37" stroke-width="1"/></svg>');
+            color: var(--light-text);
+            padding: 2rem 0;
+            border-bottom: 5px solid var(--primary-color);
+            text-align: center;
+        }
+        
+        .site-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 5px;
+        }
+        
+        .site-subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: rgba(139, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--secondary-color);
+            color: var(--dark-bg);
+        }
+        
+        /* 主要内容区 */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "❖";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--light-bg);
+            padding: 0 10px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+            padding: 0 1rem;
+        }
+        
+        /* 卡片布局 */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        /* 作者信息 */
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border: 5px solid var(--secondary-color);
+            overflow: hidden;
+        }
+        
+        .author-portrait i {
+            font-size: 8rem;
+            color: var(--secondary-color);
+        }
+        
+        .author-info {
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .author-name {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* 核心内容 */
+        .core-content {
+            margin: 3rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .content-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .content-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .content-item h3 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        /* 引用样式 */
+        .quote-section {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-section::before, .quote-section::after {
+            content: "“";
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 5rem;
+            color: var(--secondary-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+        
+        .quote-section::before {
+            top: 10px;
+            left: 20px;
+        }
+        
+        .quote-section::after {
+            content: "”";
+            bottom: 10px;
+            right: 20px;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .quote-author {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                margin: 0.3rem 0;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote-section {
+                padding: 2rem 1rem;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="container">
+            <h1 class="site-title">皇极经世</h1>
+            <p class="site-subtitle">邵雍 · 北宋易学巨著 · 宇宙演化之秘</p>
+        </div>
+    </header>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#introduction" class="nav-link active">著作简介</a>
+            <a href="#author" class="nav-link">作者邵雍</a>
+            <a href="#content" class="nav-link">核心内容</a>
+            <a href="#significance" class="nav-link">历史意义</a>
+            <a href="#legacy" class="nav-link">后世影响</a>
+        </div>
+    </nav>
+    
+    <!-- 主要内容 -->
+    <main class="container">
+        <!-- 简介部分 -->
+        <section id="introduction">
+            <h2 class="section-title">著作简介</h2>
+            <div class="intro-text">
+                <p>《皇极经世》是北宋著名理学家、易学家邵雍（1011-1077）的代表作，是一部运用易理和易数推究宇宙起源、自然演化和社会历史变迁的著作。书名中的"皇极"意为至高无上的准则，"经世"则指治理天下，合起来意为按照至高准则来治理世事。</p>
+                <p>该书构建了一个宏大的宇宙演化体系，以元、会、运、世为时间单位推算历史兴衰，将象数哲学推向了新的高度。邵雍试图通过《皇极经世》揭示天地万物变化规律，为人类社会提供一套完整的认识论和方法论体系。</p>
+            </div>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">成书背景</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>《皇极经世》成书于北宋时期，当时理学兴起，儒家学者试图重建儒家形而上学体系。邵雍融合《周易》、道家思想和儒家伦理，创建了独特的象数学体系，试图用数学模式解释宇宙和历史规律。</p>
+                        <p>该书是邵雍晚年思想的结晶，反映了他对宇宙、历史、人生的深刻思考，代表了北宋象数易学的最高成就。</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">主要内容</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>《皇极经世》共十二卷六十四篇，主要包括：</p>
+                        <ul>
+                            <li>以元会运世推算历史周期</li>
+                            <li>先天八卦与后天八卦的宇宙论</li>
+                            <li>天地万物生成变化的象数模型</li>
+                            <li>历史兴衰的规律性探讨</li>
+                            <li>心性修养与天人合一思想</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">核心概念</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>元会运世：</strong>邵雍创造的时间单位体系，1元=12会=360运=4320世=129600年，用以推算历史周期。</p>
+                        <p><strong>先天之学：</strong>邵雍认为伏羲八卦为先天八卦，代表宇宙本然状态；文王八卦为后天八卦，代表万物变化状态。</p>
+                        <p><strong>皇帝王伯：</strong>历史演变的四种治理模式，代表道德政治的逐渐退化过程。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 作者信息 -->
+        <section id="author">
+            <h2 class="section-title">作者邵雍</h2>
+            <div class="author-section">
+                <div class="author-portrait">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="author-info">
+                    <h3 class="author-name">邵雍（1011-1077）</h3>
+                    <p>邵雍，字尧夫，谥号康节，北宋著名理学家、易学家、诗人，北宋五子之一。祖籍范阳（今河北涿州），幼年随父迁居共城（今河南辉县），晚年隐居洛阳。</p>
+                    <p>邵雍少年时即有志于学，游历四方，师从李之才学习《河图》《洛书》与伏羲八卦，融会贯通，自成一家。他一生不仕，隐居治学，与司马光、程颢、程颐等交往密切。</p>
+                    <p>除了《皇极经世》外，邵雍还著有《伊川击壤集》《渔樵问对》等作品。他的思想对宋明理学发展产生了深远影响，其象数易学体系独树一帜，成为易学史上重要流派。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心内容 -->
+        <section id="content">
+            <h2 class="section-title">核心内容</h2>
+            <div class="core-content">
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h3><i class="fas fa-clock"></i> 元会运世体系</h3>
+                        <p>邵雍创造的时间计量体系：1元=12会=360运=4320世=129600年。他认为宇宙和历史都按照这个周期循环往复，每一元都经历从开辟到毁灭的过程。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h3><i class="fas fa-yin-yang"></i> 先天后天说</h3>
+                        <p>邵雍区分了先天八卦与后天八卦。先天八卦是伏羲所创，代表宇宙的本然状态
